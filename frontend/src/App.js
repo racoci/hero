@@ -1,13 +1,12 @@
 import React from "react";
-import Header from "./Header"
-import Counter from "./Counter"
+
+import "./global.css"
+
+import Logon from "./pages/Logon"
 
 function App() {
   return (
-    <div>
-      <Counter />
-      <Header title="Be The Hero"/>
-    </div>
+    <Logon />
   );
 }
 
