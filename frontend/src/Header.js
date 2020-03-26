@@ -1,9 +1,9 @@
 import React from "react"
 
-function Header(props) {
+function Header({title}) {
     return(
         <header>
-            <h1>{props.title}</h1>
+            <h1>{title}</h1>
         </header>
     )
 }
