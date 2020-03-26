@@ -5,9 +5,17 @@ module.exports = {
         const { page = 1, pageSize = 5 } = request.query;
         const [count] = await connection('incidents').count()
         const incidents = await connection('incidents')
+            .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
             .limit(pageSize)
             .offset(pageSize*(page - 1))
-            .select('*')
+            .select([
+                'incidents.*',
+                "ongs.name",
+                "ongs.email",
+                "ongs.whatsapp",
+                "ongs.city",
+                "ongs.uf",
+            ])
 
         response.header('X-Total-Count', count["count(*)"]);
         return response.json(incidents)
