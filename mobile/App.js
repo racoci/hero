@@ -17,13 +17,27 @@ function Incidents() {
     );
 }
 
+function Details() {
+    return (
+        <View style={
+            { 
+                flex: 1, 
+                alignItems: 'center', 
+                justifyContent: 'center' 
+            }
+        }>
+            <Text>Details</Text>
+        </View>
+    );
+}
+
 const Stack = createStackNavigator();
 
 function Routes() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Incidents" component={Incidents} />
+                <Stack.Screen name="Details" component={Details} />
             </Stack.Navigator>
         </NavigationContainer>
     )
