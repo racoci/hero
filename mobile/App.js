@@ -39,11 +39,13 @@ function Routes() {
             <Stack.Navigator>
                 <Stack.Screen 
                     name="Details" 
-                    component={Details} 
+                    component={Details}
+                    options={{ title: 'Details' }}
                 /> 
                 <Stack.Screen 
                     name="Incidents" 
                     component={Incidents} 
+                    options={{ title: 'Incidents' }}
                 />
             </Stack.Navigator>
         </NavigationContainer>
