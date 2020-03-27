@@ -17,7 +17,6 @@ function Logon({title}) {
         e.preventDefault();
         try {
             const {data: {name}} = await api.post("sessions", {id});
-            alert(`Logando com a ong ${name}`);
             localStorage.setItem("ongName", name);
             localStorage.setItem("ongId", id);
             history.push("profile")
