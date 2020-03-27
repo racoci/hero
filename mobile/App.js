@@ -37,7 +37,14 @@ function Routes() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Details" component={Details} />
+                <Stack.Screen 
+                    name="Details" 
+                    component={Details} 
+                /> 
+                <Stack.Screen 
+                    name="Incidents" 
+                    component={Incidents} 
+                />
             </Stack.Navigator>
         </NavigationContainer>
     )
