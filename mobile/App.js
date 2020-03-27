@@ -1,34 +1,42 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-function Incidents() {
-    return (
-        <View style={
-            { 
-                flex: 1, 
-                alignItems: 'center', 
-                justifyContent: 'center' 
-            }
-        }>
-            <Text>Incidents</Text>
-        </View>
-    );
+function Incidents({ navigation }) {
+  return (
+    <View style={
+        { 
+            flex: 1, 
+            alignItems: 'center', 
+            justifyContent: 'center' 
+        }
+    }>
+        <Text>Incidents</Text>
+        <Button
+            title="Go to Details"
+            onPress={() => navigation.navigate('Details')}
+        />
+    </View>
+  );
 }
 
-function Details() {
-    return (
-        <View style={
-            { 
-                flex: 1, 
-                alignItems: 'center', 
-                justifyContent: 'center' 
-            }
-        }>
-            <Text>Details</Text>
-        </View>
-    );
+function Details({ navigation }) {
+  return (
+    <View style={
+        { 
+            flex: 1, 
+            alignItems: 'center', 
+            justifyContent: 'center' 
+        }
+    }>
+        <Text>Details</Text>
+        <Button
+            title="Go to Incidents"
+            onPress={() => navigation.navigate('Incidents')}
+        />
+    </View>
+  );
 }
 
 const Stack = createStackNavigator();
@@ -36,7 +44,9 @@ const Stack = createStackNavigator();
 function Routes() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator
+                 initialRouteName="Incidents"
+            >
                 <Stack.Screen 
                     name="Details" 
                     component={Details}
