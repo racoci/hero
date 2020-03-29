@@ -7,15 +7,7 @@ module.exports = {
         return response.json(ongs)
     },
     async create(request, response) {
-        const resp = {
-            params: {
-                query: request.query,
-                route: request.params
-            },
-            body: request.body
-        }
-        console.log(resp)
-        const {name, email, whatsapp, city, uf} = resp.body
+        const {name, email, whatsapp, city, uf} = request.body
         const id = crypto.randomBytes(6).toString('BASE64');
         const newRow = {
             id,
