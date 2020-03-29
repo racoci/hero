@@ -12,10 +12,23 @@ import api from "../../services/api";
 function Incidents({ navigation, route }) {
     const [incidents, set_incidents] = useState([])
     const [total, set_total] = useState(0)
+    const [page, set_page] = useState(1);
+    const [loading, set_loading] = useState(false);
     async function loadIncidents() {
-        const response = await api.get("incidents")
-        set_incidents(response.data)
+        if (loading){
+            return;
+        }
+        if(total > 0 && incidents.length === total){
+            return;
+        }
+        set_loading(true);
+        const response = await api.get("incidents", {
+            params: {page}
+        })
+        set_incidents([...incidents, ...response.data])
         set_total(response.headers["x-total-count"])
+        set_page(page + 1)
+        set_loading(false);
     }
     useEffect(() => {
         loadIncidents()
@@ -35,8 +48,10 @@ function Incidents({ navigation, route }) {
             <FlatList
                 style={style.incidents}
                 data={incidents}
-                keyExtractor={incidents => String(incidents.id)}
+                keyExtractor={incident => String(incident.id)}
                 showsVerticalScrollIndicator={false}
+                onEndReached={loadIncidents}
+                onEndReachedThreshold={0.2}
                 renderItem={ ({ item: incident }) => (
                     <View style={style.incident} >
                         <Text style = {style.incidentProperty}>ONG:</Text>
