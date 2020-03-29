@@ -1,12 +1,20 @@
 import React from 'react';
 import {Feather} from "@expo/vector-icons"
-import { View, Text, Button, Image } from 'react-native';
+import { View, Text, Button, Image, Linking } from 'react-native';
 import { TouchableOpacity, FlatList } from 'react-native-gesture-handler';
+import  * as MailComposer from "expo-mail-composer"
 
 import style from "./styles";
 import logoImg from "../../assets/logo.png"
 
-function Details({ navigation }) {
+function Details({ navigation, route }) {  
+    const {name, email, whatsapp, city, uf, title, description, value} = route?.params?.incident
+    const ongWhatsApp = whatsapp
+    const formattedValue = Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    }).format(value)
+    const message =  `Olá ${name}, estou entrando em contato pois gostaria de ajudar no caso "${title}" com o valor de ${formattedValue}` 
     return (
         <View style={style.container}>
             <View style={style.header}>
@@ -20,13 +28,19 @@ function Details({ navigation }) {
             </View>
             <View style={style.incident} >
                 <Text style = {[style.incidentProperty, {marginTop: 0}]}>ONG:</Text>
-                <Text style = {style.incidentValue}>{"Nome da ONG"}</Text>
+                <Text style = {style.incidentValue}>{name}</Text>
 
-                <Text style = {style.incidentProperty}>CASO:</Text>
-                <Text style = {style.incidentValue}>{"Nome do Caso"}</Text>
+                <Text style = {style.incidentProperty}>CASO: </Text>
+                <Text style = {style.incidentValue}>{title}</Text>
+
+                <Text style = {style.incidentProperty}>DESCRIÇÃO: </Text>
+                <Text style = {style.incidentValue}>{description}</Text>
+
+                <Text style = {style.incidentProperty}>LOCAL: </Text>
+                <Text style = {style.incidentValue}>{city}, {uf}</Text>
 
                 <Text style = {style.incidentProperty}>VALOR:</Text>
-                <Text style = {style.incidentValue}>{"R$ 120,00"}</Text>
+                <Text style = {style.incidentValue}>{formattedValue}</Text>
             </View>
             <View style={style.contact} >
                 <Text style = {style.heroTitle}>Salve o dia!</Text>
@@ -35,12 +49,20 @@ function Details({ navigation }) {
                 <View style={style.actions}>
                     <TouchableOpacity 
                         style = {style.action}
-                        onPress= {() => {}}>
+                        onPress= {() => {
+                            Linking.openURL(`whatsapp://send?phone=${ongWhatsApp}&text=${message}`)
+                        }}>
                         <Text style={style.actionText}>WhatsApp</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         style = {style.action}
-                        onPress= {() => {}}>
+                        onPress= {() => {
+                            MailComposer.composeAsync({
+                                subject: `Herói para caso ${title}`,
+                                recipients: [email],
+                                body: message
+                            })
+                        }}>
                         <Text style={style.actionText}>E-mail</Text>
                     </TouchableOpacity>
                 </View>
