@@ -23,6 +23,14 @@ module.exports = {
     async create(request, response) {
         const {title, description, value} = request.body;
         const ong_id = request.headers.authorization;
+        const ong = await connection('ongs').where("id", ong_id).select("id").first()
+
+        if(!ong){
+            return response.status(404).json({
+                error: `No ong found with id ${ong_id}`
+            })
+        }
+
         const [id] = await connection('incidents').insert({
             title,
             description,
@@ -48,7 +56,7 @@ module.exports = {
         }
         if(incident.ong_id !== ong_id) {
             return response.status(401).json({
-                error: "Operation not permitted, you cannot delete an incident that is now from your own"
+                error: "Operation not permitted, you cannot delete an incident that is not from your own"
             })
         }
 
