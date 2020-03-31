@@ -1,3 +1,7 @@
+<div align="center">
+    <img src=".github/logo.svg" alt="Be The Hero">
+</div>
+
 # Be The Hero
 
 ## Projeto
@@ -38,11 +42,12 @@ Antes de executar, lembre-se de iniciar o backend deste projeto
 - A partir da raiz do projeto, entre no diretório do aplicativo mobile rodando `cd mobile`;
 - Rode `npm install` para instalar as dependências;
 - Rode `expo start` para iniciar o expo;
-- Caso vá utilizar emulador, basta clicar na opção `Run on ...`;
-- Caso vá utilizar seu smartphone, com o aplicativo do expo leia o código QR;
+- Instale o aplicativo expo em seu smartphone;
+- Abra o aplicativo;
+- Leia o código QR;
 
 ## Semana OmniStack 11.0
-A [Semana OmniStack](https://rocketseat.com.br/week/inscricao/11.0) é um evento 100% online e gratuita, onde a [Rocketseat](https://github.com/rocketseat) junto com seu CTO [Diego Fernandes](https://github.com/diego3g) e mais toda a comunidade, desenvolvem uma aplicação completa, desde o banco de dados, back-end, até o front-end web e mobile, tudo isso utilizando a stack JavaScript, ou seja, Node.js no back-end, ReactJS para web e React Native para mobile.
+A [Semana OmniStack](https://rocketseat.com.br/week/inscricao/11.0) é um evento 100% online e gratuito, onde a [Rocketseat](https://github.com/rocketseat) junto com seu CTO [Diego Fernandes](https://github.com/diego3g) e  toda a comunidade, desenvolvem uma aplicação completa, desde o banco de dados, back-end, até o front-end web e mobile, tudo isso utilizando a stack JavaScript, ou seja, Node.js no back-end, ReactJS para web e React Native para mobile.
 
 ## Licença
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/LRacoci/hero/blob/master/LICENSE) para mais detalhes.
