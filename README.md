@@ -6,7 +6,7 @@ Implementa um servidor, um site e um aplicativo para a comunicação de ONGs com
 
 Por meio do site, ONGs podem informar sobre seus casos e o valor necessário para solucionar o problema.
 
-Por meio do aplicativo, voluntários podem contruibir com um determinado caso e ser o herói o herói do dia
+Por meio do aplicativo, voluntários podem contruibir com um determinado caso e ser o herói do dia
 
 ## Configuração
 
