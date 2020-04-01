@@ -12,6 +12,20 @@ Por meio do site, ONGs podem informar sobre seus casos e o valor necessário par
 
 Por meio do aplicativo, voluntários podem contruibir com um determinado caso e ser o herói do dia
 
+## Tecnologias usadas
+
+Esta aplicação foi desenolvida com as tecnologias abaixo:
+
+- [Node.js](https://nodejs.org/en/)
+- [ReactJS](https://reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.io/)
+- [Express](https://expressjs.com/pt-br/)
+- [Nodemon](https://nodemon.io/)
+- [React Router DOM](https://reacttraining.com/react-router/)
+- [React Navigation](https://reactnavigation.org/)
+- [React Icons](https://react-icons.netlify.com/#/)
+
 ## Configuração
 
 ### Pré-requisitos
